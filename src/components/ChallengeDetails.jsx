@@ -1,15 +1,22 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { items } from "../utils/items";
 
 const ChallengeDetails = () => {
   const { id } = useParams();
-  console.log(items[id]);
+  const navigate = useNavigate();
   return (
     <section className="flex flex-col h-screen">
       <header className="max-w-6xl w-full mx-auto py-16 space-y-16">
-        <button className="bg-yellow-300 text-custom-light">
-          Starts on 17th Jun'22 09:00 PM (India Standard Time)
-        </button>
+        <div className="flex items-center justify-between">
+          <button className="bg-yellow-300 text-custom-light">
+            Starts on 17th Jun'22 09:00 PM (India Standard Time)
+          </button>
+          <button
+            className="bg-white text-custom-light"
+            onClick={() => navigate(-1)}>
+            Go back
+          </button>
+        </div>
         <div className="space-y-8">
           <h1 className="text-white">{items[id].title}</h1>
           <p className="text-white">
@@ -23,8 +30,23 @@ const ChallengeDetails = () => {
           <nav className="flex items-center justify-between">
             <h4>Overview</h4>
             <div className="space-x-4">
-              <button className="text-white bg-custom-light">Edit</button>
-              <button className="text-red-800 bg-red-100">Delete</button>
+              <button
+                className="text-white bg-custom-light"
+                onClick={() =>
+                  alert(
+                    "Functionality under construction, Thank you for understanding🥹"
+                  )
+                }>
+                Edit
+              </button>
+              <button
+                className="text-red-800 bg-red-100"
+                onClick={() => {
+                  items.splice(id, 1);
+                  navigate("/");
+                }}>
+                Delete
+              </button>
             </div>
           </nav>
           <p>

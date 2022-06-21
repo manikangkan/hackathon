@@ -67,7 +67,7 @@ const Admin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     data.push({
-      id: data.length + 1,
+      id: data.length,
       ...formData,
     });
     navigate("/");
@@ -92,7 +92,9 @@ const Admin = () => {
                     name={item.name}
                     onChange={handleChange}>
                     {item.options.map((option) => (
-                      <option value={option}>{option}</option>
+                      <option value={option} key={option}>
+                        {option}
+                      </option>
                     ))}
                   </select>
                 ) : item.type === "file" ? (

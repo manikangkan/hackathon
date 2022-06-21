@@ -13,6 +13,8 @@ const ExploreChallengesCard = ({ item }) => {
       ? "Past"
       : "Upcoming";
 
+  item.status = status;
+
   useEffect(() => {
     const timer =
       (status === "Upcoming" || status === "Active") &&
@@ -24,8 +26,8 @@ const ExploreChallengesCard = ({ item }) => {
 
   return (
     <Link to={`/details/${item.id}`}>
-      <div className="col-span-1 bg-white rounded-sm overflow-hidden hover:rotate-1 text-center">
-        <img src={item.image} alt="card header image"/>
+      <div className="break-inside mb-4 bg-white rounded-sm overflow-hidden hover:rotate-1 text-center">
+        <img src={item.image} alt="card header image" />
         <div className="p-8 space-y-4 flex flex-col items-center">
           <h4>{item.title}</h4>
           <p>

@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <section className="flex items-center justify-between h-2/3 max-w-6xl mx-auto py-32">
       <div className="space-y-16 w-2/3">
@@ -10,7 +13,9 @@ const Header = () => {
             allowing you to foster learning through competitions.
           </p>
         </div>
-        <button className="bg-white text-custom-light font-bold">
+        <button
+          className="bg-white text-custom-light font-bold"
+          onClick={() => navigate("/admin")}>
           Create challenge
         </button>
       </div>

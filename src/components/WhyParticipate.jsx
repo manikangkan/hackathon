@@ -35,7 +35,7 @@ const WhyParticipate = () => {
           Why participate in{" "}
           <span className="text-custom-green">AI challenges🤔</span>
         </h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="masonry-2-col">
           {items.map((item) => (
             <WhyParticipateCard item={item} key={item.title} />
           ))}

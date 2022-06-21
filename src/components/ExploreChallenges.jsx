@@ -2,21 +2,38 @@ import ExploreChallengesCard from "./ExploreChallengesCard";
 import { items } from "../utils/items";
 import { useState } from "react";
 
-const checkboxItems = ["easy", "medium", "hard"];
+const checkStatusList = ["easy", "medium", "hard"];
+
+const checkLevelList = ["all", "active", "past", "upcoming"];
+
+const CheckListLayout = ({ item, setSearchItem }) => (
+  <div className="flex items-center space-x-2 px-4 py-2 hover:bg-white rounded-sm cursor-pointer">
+    <input
+      id={item}
+      type="checkbox"
+      value={item}
+      onChange={(e) =>
+        e.target.value !== "all"
+          ? e.target.checked && setSearchItem(e.target.value)
+          : e.target.checked && setSearchItem("")
+      }
+    />
+    <label htmlFor={item}>{item}</label>
+  </div>
+);
 
 const ExploreChallenges = () => {
   const [searchItem, setSearchItem] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
+  const [checked, setChecked] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log("searchItem", searchItem);
-
   const handleChange = (e) => setSearchItem(e.target.value);
-
-  const filteredItems = items.filter((item) => {
-    return item.title.includes(searchItem) || item.type.includes(searchItem);
-  });
-  console.log(filteredItems);
+  const filteredItems = items.filter(
+    (item) =>
+      item.title.toLowerCase().includes(searchItem) ||
+      item.type.toLowerCase().includes(searchItem) ||
+      item.status.toLowerCase().includes(searchItem)
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,18 +42,18 @@ const ExploreChallenges = () => {
 
   return (
     <section className="bg-custom-light">
-      <form
-        className="bg-custom-dark py-16 mx-auto space-y-8"
-        onSubmit={handleSubmit}>
+      <div className="bg-custom-dark py-16 space-y-8">
         <h2 className="text-white">Explore challenges👨🏻‍💻</h2>
         <div className="flex items-center justify-center space-x-2">
-          <input
-            type="text"
-            value={searchItem}
-            onChange={handleChange}
-            placeholder="🍳 Search"
-            className="bg-white border-none outline-none px-6 py-3 text-sm rounded-sm max-w-2xl w-full"
-          />
+          <form className="max-w-2xl w-full" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={searchItem}
+              onChange={handleChange}
+              placeholder="🍳 Search"
+              className="bg-white border-none outline-none px-6 py-3 text-sm rounded-sm w-full"
+            />
+          </form>
           <div className="relative">
             <button
               type="submit"
@@ -45,35 +62,45 @@ const ExploreChallenges = () => {
               Filter
             </button>
             {isOpen && (
-              <div className="absolute bg-white p-4 rounded-sm mt-2 flex flex-col">
-                {checkboxItems.map((item) => (
-                  <div className="flex items-center space-x-2">
-                    <input
-                      id={item}
-                      type="checkbox"
-                      checked={isChecked}
-                      onChange={(e) => {
-                        setIsChecked(!isChecked);
-                        !isChecked ? setSearchItem(item) : setSearchItem("");
-                      }}
+              <form className="absolute z-40 bg-white/90 backdrop-blur-sm rounded-sm mt-2 flex flex-col divide-y divide-custom-light border border-transparent hover:border-custom-dark">
+                <div className="p-4">
+                  <p>Status</p>
+                  {checkLevelList.map((item) => (
+                    <CheckListLayout
+                      item={item}
+                      setSearchItem={setSearchItem}
                     />
-                    <label htmlFor={item}>{item}</label>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+                <div className="p-4">
+                  <p>Level</p>
+                  {checkStatusList.map((item) => (
+                    <CheckListLayout
+                      item={item}
+                      setSearchItem={setSearchItem}
+                    />
+                  ))}
+                </div>
+                <button
+                  className="bg-custom-light text-white mx-4 mb-4"
+                  onClick={(e) => setIsOpen(false)}>
+                  Close
+                </button>
+              </form>
             )}
           </div>
         </div>
-      </form>
-      <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto py-16">
+      </div>
+      <div
+        className={`${
+          filteredItems.length && "masonry-3-col "
+        } max-w-6xl mx-auto py-16`}>
         {filteredItems.length ? (
           filteredItems.map((item) => (
             <ExploreChallengesCard item={item} key={item.id} />
           ))
         ) : (
-          <h2 className="col-span-3 text-white">
-            Please try another search...
-          </h2>
+          <h2 className="text-white">Please try another search...</h2>
         )}
       </div>
     </section>
