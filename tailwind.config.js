@@ -6,7 +6,12 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
+        mono: ["Plus Jakarta Sans", ...defaultTheme.fontFamily.mono],
+      },
+      colors: {
+        "custom-light": "#003145",
+        "custom-dark": "#002A3B",
+        "custom-green": "#44924C",
       },
     },
   },
