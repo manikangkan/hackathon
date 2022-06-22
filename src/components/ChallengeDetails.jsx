@@ -43,7 +43,7 @@ const ChallengeDetails = () => {
                 className="text-red-800 bg-red-100"
                 onClick={() => {
                   items.splice(id, 1);
-                  navigate("/");
+                  navigate("/hackathon");
                 }}>
                 Delete
               </button>

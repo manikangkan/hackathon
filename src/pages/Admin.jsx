@@ -70,7 +70,7 @@ const Admin = () => {
       id: data.length,
       ...formData,
     });
-    navigate("/");
+    navigate("/hackathon");
   };
 
   return (

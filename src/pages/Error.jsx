@@ -7,7 +7,7 @@ const Error = () => {
       <h2 className="text-white">Hi there, this page isn't valid🥹</h2>
       <button
         className="bg-white text-custom-dark w-fit"
-        onClick={() => navigate("/")}>
+        onClick={() => navigate("/hackathon")}>
         Go back to home
       </button>
     </section>

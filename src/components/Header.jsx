@@ -15,7 +15,7 @@ const Header = () => {
         </div>
         <button
           className="bg-white text-custom-light font-bold"
-          onClick={() => navigate("/admin")}>
+          onClick={() => navigate("/hackathon/admin")}>
           Create challenge
         </button>
       </div>

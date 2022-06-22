@@ -25,7 +25,7 @@ const ExploreChallengesCard = ({ item }) => {
   }, [item]);
 
   return (
-    <Link to={`/details/${item.id}`}>
+    <Link to={`/hackathon/details/${item.id}`}>
       <div className="break-inside mb-4 bg-white rounded-sm overflow-hidden hover:rotate-1 text-center">
         <img src={item.image} alt="card header image" />
         <div className="p-8 space-y-4 flex flex-col items-center">

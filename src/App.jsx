@@ -13,7 +13,7 @@ const App = () => {
           <Route path="/hackathon" element={<Home />} />
           <Route path="/hackathon/admin" element={<Admin />} />
           <Route path="/hackathon/details/:id" element={<ChallengeDetails />} />
-          <Route path="*" element={<Error />} />
+          <Route path="/hackathon/*" element={<Error />} />
         </Routes>
       </Layout>
     </BrowserRouter>
