@@ -1,13 +1,16 @@
 const items = [
   {
+    icon: "🐤",
     number: "100K+",
     title: "AI model submissions",
   },
   {
+    icon: "🥇",
     number: "50K+",
     title: "Data Scientists",
   },
   {
+    icon: "💥",
     number: "100+",
     title: "AI Challenges hosted",
   },
@@ -21,7 +24,7 @@ const Statistics = () => {
           <div
             className="flex items-center justify-center first:justify-start last:justify-end space-x-4"
             key={item.number}>
-            <h2 className="aspect-square rounded-sm bg-white p-2">👨🏻‍💻</h2>
+            <h4 className="aspect-square rounded-sm bg-white p-4">{item.icon}</h4>
             <div>
               <h4 className="text-white">{item.number}</h4>
               <p className="text-white">{item.title}</p>

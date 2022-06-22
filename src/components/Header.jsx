@@ -8,7 +8,7 @@ const Header = () => {
         <div className="space-y-8">
           <h1>Accelerate Innovation with Global AI Challenges</h1>
           <p className="text-white">
-            AI Challenges at DPhi simulate real-world problems. It is a great
+            AI Challenges at asity simulate real-world problems. It is a great
             place to put your AI/Data Science skills to test on diverse datasets
             allowing you to foster learning through competitions.
           </p>
@@ -20,7 +20,7 @@ const Header = () => {
         </button>
       </div>
       <img
-        src="https://ouch-cdn2.icons8.com/5hgYphpyfhQusEBTflC_CH8_LOTVEVDtrN5YtAQ165Y/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNzUw/LzlkZGM3OWNmLTZi/OWQtNGJmNy04MzNm/LTQyZWM5MmFkOTI4/Zi5zdmc.png"
+        src="https://ouch-cdn2.icons8.com/4lwGzQdbD-8qHyELeWZpsGircgslYqJeuwuJDUhtiCY/rs:fit:456:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTQy/LzMzNWZiMGQ2LTEw/ODEtNDgxMC1hNTBi/LTAyMWU5NzdjYjY5/Ni5wbmc.png"
         alt="header image"
         className="w-1/3"
       />
